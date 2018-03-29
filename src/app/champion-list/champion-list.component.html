@@ -1,0 +1,48 @@
+<div class="container">
+  <select (change)="onChange($event.target.value)">
+    <option value="allChampions">All Champions</option>
+    <option value="mainChamps">Main Champions</option>
+    <option value="otherChamps">Not Mains</option>
+  </select>
+  <div class="row">
+    <div class="col-md-3">
+      <h3>Champion Name</h3>
+    </div>
+    <div class="col-md-3">
+      <h3>Role</h3>
+    </div>
+    <div class="col-md-3">
+      <h3>Class</h3>
+    </div>
+    <div class="col-md-2">
+      <h3>Main(?)</h3>
+    </div>
+    <div class="col-md-1">
+      <h3>Edit</h3>
+    </div>
+  </div>
+  <hr>
+  <br>
+  <div *ngFor="let champion of champList | mainness:filterByMainness">
+    <div class="row">
+      <div class="col-md-3">
+        <img src={{champion.imgUrl}}><br>
+        <h4>{{champion.name}}</h4>
+      </div>
+      <div class="col-md-3">
+        <h3>{{champion.role}}</h3>
+      </div>
+      <div class="col-md-3">
+        <h3>{{champion.championClass}}</h3>
+      </div>
+      <div class="col-md-2">
+        <input *ngIf="champion.main" type="checkbox" checked (click)="toggleMain(champion, false)"/>
+        <input *ngIf="!champion.main" type="checkbox" (click)="toggleMain(champion, true)"/>
+      </div>
+      <div class="col-md-1">
+        <button type="button" class="btn btn-primary" (click)="editChampion(champion)">Edit</button>
+      </div>
+    </div>
+    <hr>
+  </div>
+</div>

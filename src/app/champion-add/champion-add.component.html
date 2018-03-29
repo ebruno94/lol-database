@@ -1,0 +1,31 @@
+<div *ngIf="childNewChampClicked">
+  <div class="container">
+    <h1>ADD A CHAMPION TO THE LIST!</h1>
+    <div class="row">
+      <div class="col-md-3">
+        <label>Champion Name:</label>
+        <input #name>
+        <label>Champion Image:</label>
+        <input #image>
+      </div>
+      <div class="col-md-3">
+        <label>Champion Role:</label>
+        <input #role>
+      </div>
+      <div class="col-md-3">
+        <label>Champion Class:</label>
+        <input #champClass>
+      </div>
+      <div class="col-md-3">
+        <label>Do you main this champion?</label> <br>
+        <select #main>
+          <option value=true> Yes
+          <option value=false> No
+        </select>
+      </div>
+      <br>
+      <button type="button" class="btn btn-primary" (click)="submitForm(name.value, image.value, role.value, champClass.value, main.value); name.value=''; image.value=''; role.value=''; champClass.value=''; main.value=''; ">Save changes</button>
+    </div>
+  </div>
+  <br><br>
+</div>

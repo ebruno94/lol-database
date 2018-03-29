@@ -1,0 +1,29 @@
+<div *ngIf="childSelectChampion">
+  <div class="container">
+    <h1>Edit Champion</h1>
+    <div class="row">
+      <div class="col-md-3">
+        <label>Champion Name:</label>
+        <input value="{{childSelectChampion.name}}" [(ngModel)]="childSelectChampion.name">
+        <label>Champion Image:</label>
+        <input value="{{childSelectChampion.imgUrl}}" [(ngModel)]="childSelectChampion.imgUrl">
+      </div>
+      <div class="col-md-3">
+        <label>Champion Role:</label>
+        <input value="{{childSelectChampion.role}}" [(ngModel)]="childSelectChampion.role">
+      </div>
+      <div class="col-md-3">
+        <label>Champion Class:</label>
+        <input value="{{childSelectChampion.championClass}}" [(ngModel)]="childSelectChampion.championClass">
+      </div>
+      <div class="col-md-3">
+        <label>Do you main this champion?</label> <br>
+        <input type="radio" [(ngModel)]="childSelectChampion.main" value=true> Yes
+        <input type="radio" [(ngModel)]="childSelectChampion.main" value=false> No
+      </div>
+      <br>
+      <button type="button" class="btn btn-primary" (click)="childSaveChanges()">Save changes</button>
+    </div>
+  </div>
+  <br><br>
+</div>
